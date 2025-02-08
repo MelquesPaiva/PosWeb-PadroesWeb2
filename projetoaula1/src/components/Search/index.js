@@ -25,7 +25,7 @@ const Search = () => {
     
     return (
         <SearchContainer>
-            <Title>Já sabe por onde começar?</Title>
+            <Title cor="#FFF">Já sabe por onde começar?</Title>
             <SubTitle>Encontre seu produto.</SubTitle>
             <Input placeholder="Digite Aqui" onChange={ (event) => {
                 const searchText = event.target.value
