@@ -1,7 +1,7 @@
 import logo from './../../images/logo.svg'
 import './style.css'
 
-export default function () {
+const Logo =  function () {
     return (
         <div className="logo">
             <img src={logo} alt="logo" />
@@ -9,3 +9,5 @@ export default function () {
         </div>
     )
 }
+
+export default Logo

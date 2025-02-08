@@ -7,7 +7,7 @@ const imagesList = [
     { src: bagImage, alt: 'bag' },
 ];
 
-export default () => {
+const MenuIcons =  () => {
     return (
         <main>
             <ul className='icons'>
@@ -16,3 +16,5 @@ export default () => {
         </main>
     )
 }
+
+export default MenuIcons

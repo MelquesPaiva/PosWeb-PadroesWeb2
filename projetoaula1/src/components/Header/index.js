@@ -3,7 +3,7 @@ import Logo from "../Logo";
 import Menu from "../Menu";
 import MenuIcons from "../MenuIcons";
 
-export default function () {
+const Header =  () => {
     return (
         <header className="App-header">
             <Logo />
@@ -12,3 +12,5 @@ export default function () {
         </header>
     )
 }
+
+export default Header
