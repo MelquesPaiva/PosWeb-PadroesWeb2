@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import logo from './../../images/logo.svg'
 import './style.css'
 
+// styled components
 const LogoContainer = styled.div`
 display: flex;
 font-size: 30px;
