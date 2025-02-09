@@ -4,7 +4,7 @@ const BookSectionContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
     cursor: pointer;
     p {
         width: 200px;
