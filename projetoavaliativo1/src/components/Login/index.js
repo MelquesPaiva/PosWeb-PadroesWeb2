@@ -8,7 +8,7 @@ function Login() {
     return (
         <FormContainer>
             <FormHeader>
-                <Title>Login</Title>
+                <Title fontSize="24px">Login</Title>
                 <FormParagraph>Realize seu login em nosso sistema!</FormParagraph>
             </FormHeader>
             <Form method="POST">

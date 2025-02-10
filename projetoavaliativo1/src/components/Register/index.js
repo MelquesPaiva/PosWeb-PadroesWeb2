@@ -1,10 +1,15 @@
 import { Button } from "../Button"
-import { Form, FormContainer, FormContent, FormLabel } from "../Form"
+import { Form, FormContainer, FormContent, FormHeader, FormLabel, FormParagraph } from "../Form"
 import Input from "../Input"
+import { Title } from "../TextData"
 
 function Register() {
     return (
         <FormContainer>
+            <FormHeader>
+                <Title fontSize="24px">Cadastre-se</Title>
+                <FormParagraph>Realize seu cadastro em nosso sistema!</FormParagraph>
+            </FormHeader>
             <Form method="POST">
                 <FormContent>
                     <FormLabel>Nome</FormLabel>
