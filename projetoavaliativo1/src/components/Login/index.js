@@ -1,25 +1,13 @@
-import styled from "styled-components"
 import { Button } from "../Button"
-import { Form, FormContainer, FormContent, FormHeader, FormLabel, FormParagraph } from "../Form"
-import Input from "../Input"
-import { Title } from "../TextData"
+import { Form, FormContainer, FormContent, FormHeader } from "../Form"
 
 function Login() {
     return (
         <FormContainer>
-            <FormHeader>
-                <Title fontSize="24px">Login</Title>
-                <FormParagraph>Realize seu login em nosso sistema!</FormParagraph>
-            </FormHeader>
+            <FormHeader title="Login" subtitle="Realize seu login em nosso sistema!" />
             <Form method="POST">
-                <FormContent>
-                    <FormLabel>E-mail</FormLabel>
-                    <Input type="email" name="email" placeholder="Digite o e-mail" />
-                </FormContent>
-                <FormContent>
-                    <FormLabel>Senha</FormLabel>
-                    <Input type="password" name="password" placeholder="Digite a senha" />
-                </FormContent>
+                <FormContent labelName="E-mail" type="email" name="email" placeholder="Digite o e-mail"/>
+                <FormContent labelName="Senha" type="password" name="pass" placeholder="Digite a senha"/>
                 <Button type="submit" bgColor="#dc2700">Login</Button>
             </Form>
         </FormContainer>

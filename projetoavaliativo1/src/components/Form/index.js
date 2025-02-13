@@ -1,4 +1,28 @@
 import styled from "styled-components";
+import { Title } from "../TextData";
+import Input from "../Input";
+
+const FormContentSection = styled.section`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: 10px;
+`
+
+const FormParagraph = styled.p`
+font-weight: bold;
+color: #FFF;
+`
+
+const FormHeaderSection = styled.section`
+text-align: center;
+`
+
+const RadioInputContent = styled.div`
+display: flex;
+flex-direction: row;
+`
 
 export const FormContainer = styled.main`
 display: flex;
@@ -18,25 +42,42 @@ margin-bottom: 15px;
 border-radius: 20px;
 `
 
-export const FormContent = styled.section`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-margin-top: 10px;
-`
-
-export const FormHeader = styled.section`
-text-align: center;
-`
-
 export const FormLabel = styled.label`
 font-size: 15px;
 font-weight: bold;
 margin-bottom: 5px;
 `
 
-export const FormParagraph = styled.p`
-font-weight: bold;
-color: #FFF;
-`
+export const FormHeader = ({ title, subtitle }) => {
+    return (
+        <FormHeaderSection>
+            <Title fontSize="24px">{title}</Title>
+            <FormParagraph>{subtitle}</FormParagraph>
+        </FormHeaderSection>
+    );
+}
+
+export const FormContent = ({labelName, type, name, placeholder}) => {
+    return (
+        <FormContentSection>
+            <FormLabel htmlFor={name}>{labelName}</FormLabel>
+            <Input type={type} name={name} placeholder={placeholder} />
+        </FormContentSection>
+    );
+}
+
+export const FormContentRadio = ({label, radioList}) => {
+    return (
+        <FormContentSection>
+            <FormLabel>{label}</FormLabel>
+            { radioList.map((radio) => {
+                return (
+                    <RadioInputContent>
+                        <FormLabel htmlFor={radio.id}>{radio.label}</FormLabel>
+                        <Input id={radio.id} type="radio" name={radio.name}></Input>
+                    </RadioInputContent>
+                );
+            }) }
+        </FormContentSection>
+    )
+}

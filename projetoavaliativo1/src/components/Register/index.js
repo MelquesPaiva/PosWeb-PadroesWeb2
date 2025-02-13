@@ -1,32 +1,23 @@
+import styled from "styled-components"
 import { Button } from "../Button"
-import { Form, FormContainer, FormContent, FormHeader, FormLabel, FormParagraph } from "../Form"
-import Input from "../Input"
-import { Title } from "../TextData"
+import { Form, FormContainer, FormContent, FormContentRadio, FormHeader } from "../Form"
+
+const RadioInputData = [
+    {id: "men", label: "Masculino", name: "gender"},
+    {id: "women", label: "Feminino", name: "gender"},
+    {id: "other", label: "Outro", name: "gender"},
+];
 
 function Register() {
     return (
         <FormContainer>
-            <FormHeader>
-                <Title fontSize="24px">Cadastre-se</Title>
-                <FormParagraph>Realize seu cadastro em nosso sistema!</FormParagraph>
-            </FormHeader>
+            <FormHeader title="Cadastre-se" subtitle="Realize seu cadastro em nosso sistema!"/>
             <Form method="POST">
-                <FormContent>
-                    <FormLabel>Nome</FormLabel>
-                    <Input type="text" name="name" placeholder="Digite o nome" />
-                </FormContent>
-                <FormContent>
-                    <FormLabel>Data de Nascimento</FormLabel>
-                    <Input type="date" name="birthday" placeholder="Digite seu aniversário"/>
-                </FormContent>
-                <FormContent>
-                    <FormLabel>E-mail</FormLabel>
-                    <Input type="email" name="email" placeholder="Digite o e-mail" />
-                </FormContent>
-                <FormContent>
-                    <FormLabel>Senha</FormLabel>
-                    <Input type="password" name="password" placeholder="Digite a senha" />
-                </FormContent>
+                <FormContent labelName="Nome" type="text" name="name" placeholder="Digite o nome"/>
+                <FormContent labelName="Data de Nascimento" type="date" name="birthday" placeholder="Digite seu aniversário"/>
+                <FormContentRadio label="Sexo" radioList={RadioInputData} />
+                <FormContent labelName="E-mail" type="email" name="email" placeholder="Digite o e-mail"/>
+                <FormContent labelName="Senha" type="password" name="pass" placeholder="Digite a senha"/>
                 <Button type="submit" bgColor="#dc2700">Login</Button>
             </Form>
         </FormContainer>
