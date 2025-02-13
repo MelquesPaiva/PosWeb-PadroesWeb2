@@ -8,9 +8,9 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
-RUN npm install web-vitals
-RUN npm install styled-components
+RUN npm install --force
+# RUN npm install web-vitals
+# RUN npm install styled-components
 
 # Copy the rest of the application files
 COPY . .
