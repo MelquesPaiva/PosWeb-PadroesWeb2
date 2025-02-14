@@ -57,11 +57,11 @@ export const FormHeader = ({ title, subtitle }) => {
     );
 }
 
-export const FormContent = ({labelName, type, name, placeholder}) => {
+export const FormContent = ({labelName, type, name, placeholder, inputChange, inputValue}) => {
     return (
         <FormContentSection>
             <FormLabel htmlFor={name}>{labelName}</FormLabel>
-            <Input type={type} name={name} placeholder={placeholder} />
+            <Input type={type} name={name} placeholder={placeholder} inputChange={inputChange} inputValue={inputValue}/>
         </FormContentSection>
     );
 }
@@ -72,7 +72,7 @@ export const FormContentRadio = ({label, radioList}) => {
             <FormLabel>{label}</FormLabel>
             { radioList.map((radio) => {
                 return (
-                    <RadioInputContent>
+                    <RadioInputContent key={radio.id}>
                         <FormLabel htmlFor={radio.id}>{radio.label}</FormLabel>
                         <Input id={radio.id} type="radio" name={radio.name}></Input>
                     </RadioInputContent>

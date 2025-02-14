@@ -19,9 +19,9 @@ const InputElement = styled.input`
     }
 `
 
-function Input ({type, name, placeholder}) {
+function Input ({type, name, placeholder, inputChange, inputValue}) {
     return (
-        <InputElement type={type} name={name} placeholder={placeholder} />  
+        <InputElement type={type} name={name} placeholder={placeholder} onChange={inputChange} value={inputValue}/>  
     );
 }
 
