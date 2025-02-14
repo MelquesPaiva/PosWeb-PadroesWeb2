@@ -10,7 +10,7 @@ margin: 0;
 `
 
 export const Paragraph = styled.p`
-text-align: justify;
+text-align: ${props => props.align || 'justify'};
 font-weight: bold;
 color: ${props => props.color || '#233142'};
 `

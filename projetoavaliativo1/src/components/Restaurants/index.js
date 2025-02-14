@@ -43,6 +43,7 @@ const RestaurantData = styled.section`
     border: 1px solid #c1c1c1;
     border-radius: 10px;
     max-width: 33.3333333333333%;
+    background-color: #233142;
 
 `
 
