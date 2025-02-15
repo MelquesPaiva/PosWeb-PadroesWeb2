@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import './style.css'
+import { Link } from 'react-router-dom';
 
-const optionsText = ['CATEGORIAS', 'MINHA ESTANTE', 'FAVORITOS'];
+const optionsText = [
+  {text: 'CATEGORIAS', route: '/categorias'},
+  {text: 'MINHA ESTANTE', route: '/minha-estante'},
+  {text: 'FAVORITOS', route: '/favoritos'},
+];
 
 const OptionsList = styled.ul`
   display: flex;
@@ -22,7 +27,7 @@ const Option = styled.li`
 const Menu = () => {
     return (
         <OptionsList>
-            {optionsText.map((text) => <Option><p>{text}</p></Option>)}
+            {optionsText.map((option) => <Option><Link to={option.route}>{option.text}</Link></Option>)}
         </OptionsList>
     )
 }

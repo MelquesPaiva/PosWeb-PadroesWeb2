@@ -4,18 +4,19 @@ const BookSectionContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #000;
     cursor: pointer;
     p {
         width: 200px;
-        color: #fff;
         text-align: center;
     }
     img {
         width: 100px;
     }
     &:hover {
-        border: 1px solid white;
+        border: 1px solid #f1f1f1;
     }
 `
 

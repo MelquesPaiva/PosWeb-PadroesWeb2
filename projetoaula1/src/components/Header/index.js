@@ -3,6 +3,7 @@ import Logo from "../Logo";
 import Menu from "../Menu";
 import MenuIcons from "../MenuIcons";
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HeaderContainer = styled.header `
 background-color: #FFF;
@@ -14,7 +15,9 @@ align-items: center;
 const Header = () => {
     return (
         <HeaderContainer>
-            <Logo />
+            <Link to='/'>
+                <Logo />
+            </Link>
             <Menu />
             <MenuIcons />
         </HeaderContainer>

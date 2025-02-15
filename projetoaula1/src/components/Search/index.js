@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import Input from "../Input"
-import { useState } from "react"
-import { books } from "../../data/searchData"
+import { useEffect, useState } from "react"
 import BookTable from "../BookTable"
 import { Title } from "../TextData"
+import { getLivros } from "../../servicos/livros"
 
 const SearchContainer = styled.section`
     background-image: linear-gradient(90deg, #002F52 35%,
@@ -21,17 +21,32 @@ const SubTitle = styled.h3`
 `
 
 const Search = () => {
-    const [searchedBooks, setSearchedBooks] = useState(books)
-    
+    const [searchedBooks, setSearchedBooks] = useState([])
+    const [books, setBooks] = useState([])
+    useEffect(() => {
+        fetchBooks()
+    }, [books])
+
+    const fetchBooks = async () => {
+        const booksApiData = await getLivros()
+        setBooks(booksApiData)
+    };
+
+    const searchBook = (searchText) => {
+        if (searchText === '') {
+            setSearchedBooks([])
+            return
+        }
+
+        const searchResult = books.filter((book) => book.nome.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
+        setSearchedBooks(searchResult)
+    }
+
     return (
         <SearchContainer>
             <Title cor="#FFF">Já sabe por onde começar?</Title>
             <SubTitle>Encontre seu produto.</SubTitle>
-            <Input placeholder="Digite Aqui" onChange={ (event) => {
-                const searchText = event.target.value
-                const searchResult = books.filter((book) => book.nome.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
-                setSearchedBooks(searchResult)
-            } }/>
+            <Input placeholder="Digite Aqui" onChange={event => searchBook(event.target.value)}/>
             <BookTable books={searchedBooks}></BookTable>
         </SearchContainer>
     )
