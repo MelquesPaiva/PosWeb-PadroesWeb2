@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import BookTable from "../BookTable"
 import { Title } from "../TextData"
 import { getLivros } from "../../servicos/livros"
+import { postFavorite } from "../../servicos/favorites"
 
 const SearchContainer = styled.section`
     background-image: linear-gradient(90deg, #002F52 35%,
@@ -25,7 +26,7 @@ const Search = () => {
     const [books, setBooks] = useState([])
     useEffect(() => {
         fetchBooks()
-    }, [books])
+    }, [])
 
     const fetchBooks = async () => {
         const booksApiData = await getLivros()
@@ -42,12 +43,19 @@ const Search = () => {
         setSearchedBooks(searchResult)
     }
 
+    const addFavourite = async (id) => {
+        if (window.confirm('Deseja adicionar o livro aos favoritos')) {
+            const data = await postFavorite(id)
+            alert(data)
+        }
+    }
+
     return (
         <SearchContainer>
             <Title cor="#FFF">Já sabe por onde começar?</Title>
             <SubTitle>Encontre seu produto.</SubTitle>
             <Input placeholder="Digite Aqui" onChange={event => searchBook(event.target.value)}/>
-            <BookTable books={searchedBooks}></BookTable>
+            <BookTable books={searchedBooks} bookClick={addFavourite}></BookTable>
         </SearchContainer>
     )
 }
