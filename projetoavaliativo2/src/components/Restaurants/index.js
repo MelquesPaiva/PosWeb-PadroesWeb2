@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { RestaurantList } from "../../data/restaurants";
 
 const RestaurantContainer = styled.main`
     color: #FFF;
@@ -58,21 +59,6 @@ const RestaurantDescription = styled.p`
     padding: 1rem;
     margin: 0 1rem;
 `
-
-const RestaurantList = [
-    {title: "Maria da Lenha", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "João de Barro", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Brasa Brasileira", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Nakaya", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Open Spice", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Fire Burger", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Brooklyn", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Rei do Beirute", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Fogo de Chão", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Burger King", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "MC Donalds", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-    {title: "Sabor do Sul", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"},
-];
 
 export const RestaurantContent = ()  => {
     const [restaurantResult, setRestaurantResult] = useState(RestaurantList)

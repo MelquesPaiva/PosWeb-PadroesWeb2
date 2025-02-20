@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { Header } from './components/Header';
 import { createGlobalStyle } from 'styled-components';
-import Login from './components/Login';
-import Register from './components/Register';
-import { RestaurantContent } from './components/Restaurants';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import HomePage from './pages/HomePage';
+import UserFirstPage from './pages/UserFirstPage';
+import ProtectedRoute from './components/Routes/ProtectedRoute';
+import { userIsLogged } from './modules/userFunctions';
+import { Logout } from './components/Login';
+import RequestPage from './pages/RequestPage';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -45,11 +49,16 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <BrowserRouter>
-      <Header />
+      <Header/>
       <Routes>
-        <Route path="/" element={<RestaurantContent />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/user/home" element={<UserFirstPage />} />
+          <Route path="/user/logout" element={<Logout />}></Route>
+          <Route path="/user/request" element={<RequestPage />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

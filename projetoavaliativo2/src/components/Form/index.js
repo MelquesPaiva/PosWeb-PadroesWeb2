@@ -83,11 +83,25 @@ export const FormContentRadio = ({label, radioList}) => {
                     return (
                         <RadioInputContent key={radio.id}>
                             <FormLabel htmlFor={radio.id}>{radio.label}</FormLabel>
-                            <Input id={radio.id} type="radio" name={radio.name}></Input>
+                            <Input id={radio.id} type="radio" name={radio.name} inputValue={radio.value} />
                         </RadioInputContent>
                     );
                 }) }
             </FormRadioFields>
+        </FormContentSection>
+    )
+}
+
+export const FormContentSelect = ({label, name, options}) => {
+    return (
+        <FormContentSection>
+            <FormLabel htmlFor={name}>{label}</FormLabel>
+            <select name={name} required>
+                <option value="">Selecione</option>
+                {options.map((option) => {
+                    return <option value={option}>{option}</option>
+                })}
+            </select>
         </FormContentSection>
     )
 }

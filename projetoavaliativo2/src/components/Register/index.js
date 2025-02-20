@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Button } from "../Button"
 import { Form, FormContainer, FormContent, FormContentRadio, FormHeader } from "../Form"
 import { Paragraph } from "../TextData";
+import createUser from "../../modules/addToUserList";
 
 const RadioInputData = [
-    { id: "men", label: "Masculino", name: "gender" },
-    { id: "women", label: "Feminino", name: "gender" },
-    { id: "other", label: "Outro", name: "gender" },
+    { id: "men", label: "Masculino", value: "men", name: "gender" },
+    { id: "women", label: "Feminino", value: "women", name: "gender" },
+    { id: "other", label: "Outro", value: "other", name: "gender" },
 ];
 
 function Register() {
@@ -30,8 +31,15 @@ function Register() {
             return
         }
 
-        setUserWelcomeColorText(successTextColor)
-        setUserWelcomeText(`Olá! ${userName}!. Estamos felizes em te receber aqui. Seu e-mail para login é ${userLogin} e sua data de nascimento é ${userBirth}. Até mais vê`)
+        const formData = new FormData(e.target)
+        try {
+            createUser(formData)
+            setUserWelcomeColorText(successTextColor)
+            setUserWelcomeText(`Olá! ${userName}!. Estamos felizes em te receber aqui. Seu e-mail para login é ${userLogin} e sua data de nascimento é ${userBirth}. Até mais vê`)
+        } catch (e) {
+            setUserWelcomeColorText(dangerTextColor)
+            setUserWelcomeText(e.message)
+        }
     }
 
     const handleUserData = (event) => {
